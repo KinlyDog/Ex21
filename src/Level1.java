@@ -75,22 +75,18 @@ public class Level1 {
         int len = 3;
         int t = 4;
 
-        while (len != ma.length + 1) {
-            for (int i = 0; i < ma.length; i++) {
+        while (len < ma.length + 1) {
+            for (int i = 0; len < ma.length + 1; i++) {
                 resortTempMas(ma, len, i);
 
                 if (compareMas(ma, sortMas)) return true;
 
                 ma = newTempMas(mas, mas.length);
 
-                if (len == ma.length) {
-                    len = t;
-                    break;
-                }
-
                 len++;
             }
 
+            len = t;
             t++;
         }
 
