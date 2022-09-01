@@ -28,12 +28,11 @@ public class Level1 {
     public static int[] resortTempMas(int[] ma, int len, int i) {
         int l = 0;
 
-        for (int j = 0 + i; j < (len + i) / 2; j++) {
+        for (int j = 0 + i; j < (len + i) / 2; j++, l++) {
             int temp = ma[j];
+
             ma[j] = ma[len - 1 - l];
             ma[len - 1 - l] = temp;
-
-            l++;
         }
 
         return ma;
@@ -76,14 +75,12 @@ public class Level1 {
         int t = 4;
 
         while (len < ma.length + 1) {
-            for (int i = 0; len < ma.length + 1; i++) {
+            for (int i = 0; len < ma.length + 1; i++, len++) {
                 resortTempMas(ma, len, i);
 
                 if (compareMas(ma, sortMas)) return true;
 
                 ma = newTempMas(mas, mas.length);
-
-                len++;
             }
 
             len = t;
