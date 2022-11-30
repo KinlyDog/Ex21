@@ -97,4 +97,5 @@ public class Level1 {
 
         return sort1(f, sortMas) || sort2(f, sortMas);
     }
+
 }
