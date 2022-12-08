@@ -1,5 +1,5 @@
 public class Level1 {
-    public static int[] newTempMas(int[] mas, int n) {
+    public static int[] newTempArray(int[] mas, int n) {
         int[] temp = new int[n];
 
         for (int i = 0; i < n; i++) {
@@ -9,8 +9,8 @@ public class Level1 {
         return temp;
     }
 
-    public static int[] trueSort(int[] mas, int n) {
-        int[] sort = newTempMas(mas, n);
+    public static int[] sortTheArray(int[] mas, int n) {
+        int[] sort = newTempArray(mas, n);
 
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
@@ -38,7 +38,7 @@ public class Level1 {
         return ma;
     }
 
-    public static boolean compareMas(int[] mas1, int[] mas2) {
+    public static boolean compareArrays(int[] mas1, int[] mas2) {
         for (int k = 0; k < mas1.length; k++) {
             if (mas1[k] != mas2[k]) {
                 return false;
@@ -48,8 +48,8 @@ public class Level1 {
         return true;
     }
 
-    public static boolean sort1(int[] mas, int[] sortMas) {
-        int[] ma = newTempMas(mas, mas.length);
+    public static boolean swapTwoRandElements(int[] mas, int[] sortMas) {
+        int[] ma = newTempArray(mas, mas.length);
 
         for (int i = 0; i < ma.length; i++) {
             for (int j = 0; j < ma.length; j++) {
@@ -58,7 +58,7 @@ public class Level1 {
                 ma[j] = mas[i];
                 ma[i] = mas[j];
 
-                if (compareMas(ma, sortMas)) return true;
+                if (compareArrays(ma, sortMas)) return true;
 
                 ma[i] = mas[i];
                 ma[j] = mas[j];
@@ -68,8 +68,8 @@ public class Level1 {
         return false;
     }
 
-    public static boolean sort2(int[] mas, int[] sortMas) {
-        int[] ma = newTempMas(mas, mas.length);
+    public static boolean reverseSort(int[] mas, int[] sortMas) {
+        int[] ma = newTempArray(mas, mas.length);
 
         int len = 3;
         int t = 4;
@@ -78,9 +78,9 @@ public class Level1 {
             for (int i = 0; len < ma.length + 1; i++, len++) {
                 resortTempMas(ma, len, i);
 
-                if (compareMas(ma, sortMas)) return true;
+                if (compareArrays(ma, sortMas)) return true;
 
-                ma = newTempMas(mas, mas.length);
+                ma = newTempArray(mas, mas.length);
             }
 
             len = t;
@@ -93,9 +93,9 @@ public class Level1 {
     public static boolean Football(int[] f, int n) {
         if (n < 3) return  true;
 
-        int[] sortMas = trueSort(f, n);
+        int[] sortMas = sortTheArray(f, n);
 
-        return sort1(f, sortMas) || sort2(f, sortMas);
+        return swapTwoRandElements(f, sortMas) || reverseSort(f, sortMas);
     }
 
 }
