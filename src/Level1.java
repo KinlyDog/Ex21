@@ -1,12 +1,10 @@
 public class Level1 {
     public static int[] newTempArray(int[] mas, int n) {
-        int[] temp = new int[n];
+        int[] arrayCopy = new int[n];
 
-        for (int i = 0; i < n; i++) {
-            temp[i] = mas[i];
-        }
+        System.arraycopy(mas, 0, arrayCopy, 0, n);
 
-        return temp;
+        return arrayCopy;
     }
 
     public static int[] sortTheArray(int[] mas, int n) {
@@ -28,7 +26,7 @@ public class Level1 {
     public static int[] resortTempMas(int[] ma, int len, int i) {
         int l = 0;
 
-        for (int j = 0 + i; j < (len + i) / 2; j++, l++) {
+        for (int j = i; j < (len + i) / 2; j++, l++) {
             int temp = ma[j];
 
             ma[j] = ma[len - 1 - l];
@@ -91,7 +89,7 @@ public class Level1 {
     }
 
     public static boolean Football(int[] f, int n) {
-        if (n < 3) return  true;
+        if (n < 3) return true;
 
         int[] sortMas = sortTheArray(f, n);
 
