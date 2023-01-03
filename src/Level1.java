@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Level1 {
     public static int[] newTempArray(int[] mas, int n) {
         int[] arrayCopy = new int[n];
